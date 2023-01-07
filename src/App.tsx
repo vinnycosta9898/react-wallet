@@ -1,7 +1,13 @@
+import { GlobalStyle } from "./styles/GlobalStyle";
+import { Header } from './components/Header';
+import { Resume } from "./components/Resume";
+
 function App() {
   return (
     <div>
-      <h1>Hello World</h1>
+      <GlobalStyle/>
+      <Header/>
+      <Resume/>
     </div>
   )
 }
