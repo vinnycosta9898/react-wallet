@@ -1,6 +1,7 @@
 import { GlobalStyle } from "./styles/GlobalStyle";
 import { Header } from './components/Header';
-import { Resume } from "./components/Resume";
+import { Resume } from './components/Resume';
+import { Form } from './components/Form';
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <GlobalStyle/>
       <Header/>
       <Resume/>
+      <Form/>
     </div>
   )
 }
