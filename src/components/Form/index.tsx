@@ -58,10 +58,8 @@ export function Form(){
                     onChange={() => setExpense(!isExpense)}
                 />
                 <Label htmlFor="rExpenses">Saída</Label>
-
-
-
             </RadioGroup>
+            <Button onClick={handleSave}>Adicionar</Button>
 
         </Container>
     )
