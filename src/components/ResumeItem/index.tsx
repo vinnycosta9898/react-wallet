@@ -1,16 +1,24 @@
+import { ReactElement, ReactNode } from 'react';
 import { Container, 
          Header, 
          HeaderTitle, 
          Total 
         } from './styles';
 
-export function ResumeItem(){
+interface ResumeItemProps{
+    title: string;
+    value: number;
+    Icon: ReactElement;
+}
+
+export function ResumeItem({ title, value, Icon } : ResumeItemProps){
     return(
         <Container>
             <Header>
-                <HeaderTitle>Teste</HeaderTitle>
+                <HeaderTitle>{title}</HeaderTitle>
+                {Icon}
             </Header>
-            <Total>1000</Total>
+            <Total>{value}</Total>
         </Container>
     )
 }
