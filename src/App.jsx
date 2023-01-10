@@ -47,6 +47,8 @@ function App() {
       <Resume income={income} expense={expense} total={total}/>
       <Form 
         handleAdd={handleAdd}
+        transactionsList={transactionsList}
+        setTransactionsList={setTransactionsList}
       />
     </div>
   )

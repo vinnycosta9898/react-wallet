@@ -10,7 +10,9 @@ import { useState } from 'react';
 
 import { v4 as uuidv4 } from 'uuid';
 
-export function Form({ handleAdd }){
+import { Grid } from '../Grid';
+
+export function Form({ handleAdd, transactionsList, setTransactionsList }){
     
     const [desc, setDesc] = useState("");
     const [amount, setAmount] = useState("");
@@ -38,43 +40,45 @@ export function Form({ handleAdd }){
     };
 
     return(
-        <Container>
-            <InputContainer>
-                <Label>Descrição</Label>
-                <Input 
-                    value={desc} 
-                    onChange={(e) => {setDesc(e.target.value)}}
-                />
-            </InputContainer>
+        <>
+            <Container>
+                <InputContainer>
+                    <Label>Descrição</Label>
+                    <Input 
+                        value={desc} 
+                        onChange={(e) => {setDesc(e.target.value)}}
+                    />
+                </InputContainer>
 
-            <InputContainer>
-                <Label>Valor</Label>
-                <Input 
-                    value={amount} 
-                    onChange={(e) => {setAmount(Number(e.target.value))}}
-                />
-            </InputContainer>
+                <InputContainer>
+                    <Label>Valor</Label>
+                    <Input 
+                        value={amount} 
+                        onChange={(e) => {setAmount(Number(e.target.value))}}
+                    />
+                </InputContainer>
 
-            <RadioGroup>
-                <Input 
-                    type="radio" 
-                    id="rIncome" 
-                    defaultChecked 
-                    name="group1" 
-                    onChange={() => setIsExpense(!isExpense)}
-                />
-                <Label htmlFor="rIncome">Entrada</Label>
+                <RadioGroup>
+                    <Input 
+                        type="radio" 
+                        id="rIncome" 
+                        defaultChecked 
+                        name="group1" 
+                        onChange={() => setIsExpense(!isExpense)}
+                    />
+                    <Label htmlFor="rIncome">Entrada</Label>
 
-                <Input 
-                    type="radio" 
-                    id="rExpenses"  
-                    name="group1" 
-                    onChange={() => setIsExpense(!isExpense)}
-                />
-                <Label htmlFor="rExpenses">Saída</Label>
-            </RadioGroup>
-            <Button onClick={handleSave}>Adicionar</Button>
-
-        </Container>
+                    <Input 
+                        type="radio" 
+                        id="rExpenses"  
+                        name="group1" 
+                        onChange={() => setIsExpense(!isExpense)}
+                    />
+                    <Label htmlFor="rExpenses">Saída</Label>
+                </RadioGroup>
+                <Button onClick={handleSave}>Adicionar</Button>
+            </Container>
+            <Grid items={transactionsList} setItems={setTransactionsList}/>
+        </>
     )
 }
